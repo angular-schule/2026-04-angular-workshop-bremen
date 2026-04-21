@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -9,9 +10,22 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 })
 export class DashboardPage {
 
-  books = signal(['Angular', 'jQuery', 'React']);
+  // 🦆
+  readonly books = signal<Book[]>([{
+    isbn: '000',
+    title: 'Angular',
+    description: 'Bestes Buch der Welt',
+    rating: 5
+  }, {
+    isbn: '111',
+    title: 'jQuery',
+    description: 'Altes Buch',
+    rating: 3
+  },{
+    isbn: '222',
+    title: 'React',
+    description: 'Auch ganz nett',
+    rating: 1
+  }]);
 
-  constructor() {
-    setTimeout(() => this.books.update(b => [...b, 'Vue.js']), 2000)
-  }
 }
