@@ -21,7 +21,6 @@ describe('BookCard', () => {
       ]
     });
     component = fixture.componentInstance;
-    component.book
 
     await fixture.whenStable();
   });
