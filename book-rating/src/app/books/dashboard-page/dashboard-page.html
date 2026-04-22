@@ -1,3 +1,7 @@
 @for (b of books(); track b.isbn) {
-  <app-book-card [book]="b" />
+  <app-book-card
+    (rateDown)="doRateDown($event)"
+    (rateUp)="doRateUp($event)"
+    [book]="b"
+  />
 }

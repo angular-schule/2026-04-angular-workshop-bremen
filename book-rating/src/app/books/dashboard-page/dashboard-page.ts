@@ -11,6 +11,14 @@ import { BookCard } from "../book-card/book-card";
 })
 export class DashboardPage {
 
+  /**
+   *
+   */
+  constructor() {
+    // setTimeout(() => this.books.set([]), 10000);
+
+  }
+
   // 🦆
   readonly books = signal<Book[]>([{
     isbn: '000',
@@ -28,5 +36,13 @@ export class DashboardPage {
     description: 'Auch ganz nett',
     rating: 1
   }]);
+
+  doRateDown(book: Book) {
+    console.log(book);
+  }
+
+  doRateUp(book: Book) {
+    console.table(book);
+  }
 
 }
