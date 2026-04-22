@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Book } from '../shared/book';
+import { JsonPipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [],
+  imports: [JsonPipe],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush // bald default
