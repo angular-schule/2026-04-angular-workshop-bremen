@@ -11,4 +11,13 @@ export class BookCard {
 
   book = input.required<Book>();
 
+  // statefull == echt schlecher Code
+  /*
+  _istBestesBuchDerWelt = false;
+
+  ngOnInit() {
+    if (this.book().title === 'Angular') {
+      this._istBestesBuchDerWelt = true;
+    }
+  }*/
 }
