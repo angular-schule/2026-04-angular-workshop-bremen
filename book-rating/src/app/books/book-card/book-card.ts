@@ -9,7 +9,7 @@ import { Book } from '../shared/book';
 })
 export class BookCard {
 
-  book = input.required<Book>();
+  readonly book = input.required<Book>();
 
   // statefull == echt schlecher Code
   /*
