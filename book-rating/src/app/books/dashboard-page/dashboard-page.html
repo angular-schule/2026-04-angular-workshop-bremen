@@ -11,3 +11,16 @@
     />
   }
 </main>
+
+<hr>
+
+@if(bookResource.hasValue()) {
+  <pre>{{ bookResource.value() | json }}</pre>
+} @else if (bookResource.error()) {
+  <p>Fehler beim Laden: {{ bookResource.error()?.message }} </p>
+}
+
+Loading: {{ bookResource.isLoading() }}<br>
+Status: {{ bookResource.status() }}<br>
+
+<button (click)="isbn.set('9783864907791')">Angular 3</button>
