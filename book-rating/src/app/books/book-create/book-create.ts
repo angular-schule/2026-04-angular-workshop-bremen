@@ -41,5 +41,11 @@ export class BookCreate {
       }
       return undefined;
     })
-  });
+  }, {
+    submission: {
+      action: async (f) => {
+        console.log('Das Formular wurde abgesendet!')
+      }
+    }
+  },);
 }
