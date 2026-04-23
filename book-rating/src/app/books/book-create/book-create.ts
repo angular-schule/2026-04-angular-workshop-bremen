@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { form, FormField, FormRoot, max, maxLength, min, minLength, required, validate } from '@angular/forms/signals';
+
 import { Book } from '../shared/book';
-import { form, max, maxLength, min, minLength, required, validate } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-book-create',
-  imports: [],
+  imports: [FormField, FormRoot],
   templateUrl: './book-create.html',
   styleUrl: './book-create.scss',
 })
@@ -47,5 +48,5 @@ export class BookCreate {
         console.log('Das Formular wurde abgesendet!')
       }
     }
-  },);
+  });
 }
