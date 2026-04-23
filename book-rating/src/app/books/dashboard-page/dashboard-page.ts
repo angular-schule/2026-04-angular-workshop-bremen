@@ -39,6 +39,11 @@ export class DashboardPage {
 
   doRateUp(book: Book) {
     const ratedBook = this.bookRatingHelper.rateUp(book)
+
+    // const ratedBook = {
+    //   ...book,
+    //   rating: Math.max(book.rating - 1, 5)
+    // }
     this.updateAndSortBook(ratedBook);
   }
 
