@@ -65,4 +65,9 @@ export class DashboardPage {
     */
   }
 
+  doCreateBook(newBook: Book) {
+    this.books.update(books => [...books, newBook]
+      .sort((a, b) => b.rating - a.rating)
+    )
+  }
 }

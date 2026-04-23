@@ -1,9 +1,13 @@
-<app-book-create />
-
-@for (b of books(); track b.isbn) {
-  <app-book-card
-    (rateDown)="doRateDown($event)"
-    (rateUp)="doRateUp($event)"
-    [book]="b"
+<main>
+  <app-book-create
+    (createBook)="doCreateBook($event)"
   />
-}
+
+  @for (b of books(); track b.isbn) {
+    <app-book-card
+      (rateDown)="doRateDown($event)"
+      (rateUp)="doRateUp($event)"
+      [book]="b"
+    />
+  }
+</main>

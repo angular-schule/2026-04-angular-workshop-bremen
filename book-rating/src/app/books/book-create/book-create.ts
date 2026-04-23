@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { form, FormField, FormRoot, max, maxLength, min, minLength, required, validate } from '@angular/forms/signals';
 
 import { Book } from '../shared/book';
@@ -10,6 +10,8 @@ import { Book } from '../shared/book';
   styleUrl: './book-create.scss',
 })
 export class BookCreate {
+
+  readonly createBook = output<Book>();
 
   // Datenmodell
   protected readonly bookData = signal<Book>({
@@ -45,7 +47,20 @@ export class BookCreate {
   }, {
     submission: {
       action: async (f) => {
-        console.log('Das Formular wurde abgesendet!')
+        console.log('Das Formular wurde abgesendet! (und ist valide');
+
+        const newBook = f().value();
+        this.createBook.emit(newBook);
+
+        this.bookForm().reset({
+          isbn: '',
+          title: '',
+          description: '',
+          rating: 1
+        });
+      },
+      onInvalid: async(f) => {
+        console.log('Das Formular wurde abgesendet! (und ist leider nicht valide)')
       }
     }
   });

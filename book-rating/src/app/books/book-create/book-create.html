@@ -1,13 +1,19 @@
-
 <form [formRoot]="bookForm">
 
   <div class="form-group">
     <label for="isbnField">ISBN</label>
-    <input [formField]="bookForm.isbn" id="isbnField" type="text" class="form-control" />
 
-    @if (bookForm.isbn().touched()) {
-      @for (e of bookForm.isbn().errors(); track e.kind) {
-        <div class="feedback-error">{{ e.message }}</div>
+    @let isbnField = bookForm.isbn;
+    @let isbnFieldInvalid = isbnField().touched() && isbnField().invalid();
+
+    <input [formField]="isbnField"
+      [aria-invalid]="isbnFieldInvalid"
+      [aria-errormessage]="isbnFieldInvalid ? 'isbnError' : null"
+      id="isbnField" type="text" class="form-control" />
+
+    @if (isbnField().touched()) {
+      @for (e of isbnField().errors(); track e.kind) {
+        <div id="isbnError" class="feedback-error">{{ e.message }}</div>
       }
     }
   </div>
