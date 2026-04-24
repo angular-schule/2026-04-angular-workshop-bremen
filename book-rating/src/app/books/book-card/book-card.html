@@ -10,8 +10,9 @@
     </header>
     <p>{{ book().description }}</p>
 
-    <!-- übler code, richtig schlecht! 🤮 -->
     <button class="btn btn-primary me-2" (click)="doRateDown()">-1</button>
     <button class="btn btn-primary" (click)="doRateUp()">+1</button>
+
+    <a [routerLink]="['/books', book().isbn]" class="btn btn-secondary ms-2">Details</a>
   </div>
 </article>
