@@ -24,17 +24,21 @@ export class ExerciseCreating {
 
     /******************************/
 
-    const observable = of('🙂', '🥰', '😎');
+    // const observable = of('🙂', '🥰', '😎');
+    const observable = interval(1000);
 
     const observer = {
-      next: (e: string) => this.log(e),
+      next: (e: number) => this.log(e),
       error: (err: any) => this.log('ERROR' + err),
       complete: () => this.log('COMPLETE')
     };
 
     const subcription = observable.subscribe(observer);
 
-    subcription.unsubscribe();
+    setTimeout(() => subcription.unsubscribe(),5000)
+
+    // setTimeout(() => this.log('A'), 1000)
+    // setTimeout(() => this.log('B'), 1100)
 
 
     /******************************/
