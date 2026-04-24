@@ -23,7 +23,14 @@ export class ExerciseGamescore {
 
     /******************************/
 
-    
+    this.score$.pipe(
+      scan((acc, item) => acc + item, 0)
+    ).subscribe(score => this.currentScore.set(score));
+
+    this.score$.pipe(
+      reduce((acc, item) => acc + item, 0)
+    ).subscribe(score => this.finalScore.set(score));
+
     /******************************/
 
     this.score$.subscribe({
