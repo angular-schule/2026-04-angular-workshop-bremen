@@ -1,1 +1,10 @@
-<p>book-details-page works!</p>
+@if(book.hasValue()) {
+  <h2>Buch {{ book.value().title }} – {{ book.value().isbn }}</h2>
+
+  <p>
+    {{ book.value().description  }}
+  </p>
+}
+
+<a routerLink="/books/9783864909467">Angular 4</a><br>
+<a routerLink="/books/9783864905520">React</a>
